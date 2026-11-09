@@ -1,0 +1,25 @@
+# Entornos y cachés de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Checkpoints de Jupyter
+.ipynb_checkpoints/
+
+# Datos generados (se recrean con los notebooks; GitHub rechaza archivos de más de 100 MB)
+*.csv
+*.csv.gz
+
+# Artefactos generados por el notebook 02
+modelo/
+salidas/
+salidas_cli/
+salidas_pruebas/
+
+# Archivos de Power BI
+*.pbix
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
