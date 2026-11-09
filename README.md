@@ -20,14 +20,14 @@ SaludConex pierde el 17% de sus horas médicas por inasistencia. Este prototipo 
 ## Estructura
 
 ```
-SaludConex_EP3/
-  notebooks/
-    01_SaludConex_Generacion_Datos_Sinteticos.ipynb   # genera saludconex_reservas_2023_2025.csv (1.536.727 reservas)
-    02_SaludConex_Actividad_3_1_2.ipynb               # preparación, modelo, evaluación, equidad, predicciones, automatización y CSV para Power BI
-  src/
-    saludconex_variables.py   # módulo compartido: variables, corte 20:00, probabilidad, nivel de riesgo, explicaciones SHAP
-    automatizacion.py         # proceso diario ejecutable por línea de comandos
+notebooks/
+  01_SaludConex_Generacion_Datos_Sinteticos.ipynb   # genera saludconex_reservas_2023_2025.csv (1.536.727 reservas)
+  02_SaludConex_Actividad_3_1_2.ipynb               # preparación, modelo, evaluación, equidad, predicciones, automatización y CSV para Power BI
+src/
+  saludconex_variables.py   # módulo compartido: variables, corte 20:00, probabilidad, nivel de riesgo, explicaciones SHAP
+  automatizacion.py         # proceso diario ejecutable por línea de comandos
 requirements.txt
+.gitignore
 ```
 
 Los archivos de `src/` son una copia de los que el notebook 02 escribe con `%%writefile`, para poder revisarlos sin abrir el notebook.
@@ -54,11 +54,11 @@ python -m venv .venv
 pip install -r requirements.txt
 
 # 4. Abrir los notebooks
-cd SaludConex_EP3/notebooks
+cd notebooks
 jupyter notebook
 ```
 
-Ejecuta primero el notebook 01 y luego el 02 completo, ambos en `SaludConex_EP3/notebooks/`, para que el CSV quede en la misma carpeta que el notebook 02. Al terminar, el notebook 02 genera en esa carpeta:
+Ejecuta primero el notebook 01 y luego el 02 completo, ambos en `notebooks/`, para que el CSV quede en la misma carpeta que el notebook 02. Al terminar, el notebook 02 genera en esa carpeta:
 
 - `modelo/modelo_inasistencia_v2.1.joblib` y `modelo/config_v2.1.json`
 - `salidas/acciones_preventivas_Providencia_<fecha>.csv` y `salidas/log_ejecuciones.csv`
@@ -66,7 +66,7 @@ Ejecuta primero el notebook 01 y luego el 02 completo, ambos en `SaludConex_EP3/
 
 Los CSV, el modelo y las salidas no se suben al repositorio (ver `.gitignore`): se recrean al ejecutar los notebooks.
 
-El proceso diario también se puede correr sin abrir el notebook, desde `SaludConex_EP3/notebooks/` y con el entorno activado:
+El proceso diario también se puede correr sin abrir el notebook, desde `notebooks/` y con el entorno activado:
 
 ```bash
 python automatizacion.py --datos saludconex_reservas_2023_2025.csv --corte "2025-11-30 20:00"
@@ -83,8 +83,8 @@ python automatizacion.py --datos saludconex_reservas_2023_2025.csv --corte "2025
 ## Gestión del proyecto
 
 - Tablero de control (Trello): https://trello.com/b/38zD2Typ/caso-semestral-saludconex
-- Notebook 01 en Colab: https://colab.research.google.com/drive/1hxkh8SjVjIq_IOaS64o4vlLko319v3hw?usp=sharing
-- Notebook 02 en Colab: https://colab.research.google.com/drive/1LcQBUmqUfqHwEMMq_k_G_Ct3Anc4YDVI?usp=sharing
+- Notebook 01 en Colab: https://colab.research.google.com/drive/1sfmXiYUNonMR4znNIT896YDlbaOrAoua?usp=sharing
+- Notebook 02 en Colab: https://colab.research.google.com/drive/1NnGUGzqpo-L8c7V9FuRvIRP9OSLb9Z4L?usp=sharing
 
 ## Limitaciones
 
